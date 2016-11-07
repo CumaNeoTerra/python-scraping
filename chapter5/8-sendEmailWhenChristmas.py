@@ -15,7 +15,11 @@ def sendMail(subject, body):
 	s.quit()
 
 bsObj = BeautifulSoup(urlopen("https://isitchristmas.com/"))
-while(bsObj.find("a", {"id":"answer"}).attrs['title'] == "NO"):
+
+#ip location in CH, simplify following
+#while(bsObj.find("a", {"id":"answer"}).attrs['title'] == 'NO'):   to
+
+while bsObj.find("a", ['title'] == 'NEIN/NON'):
     print("It is not Christmas yet.")
     time.sleep(3600)
     bsObj = BeautifulSoup(urlopen("https://isitchristmas.com/"))
